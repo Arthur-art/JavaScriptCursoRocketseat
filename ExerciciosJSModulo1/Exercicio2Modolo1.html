@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:
+function pares(x, y) {
+ // código aqui
+}
+pares(32, 321);*/
+
+
+var lista=[];
+function pares(num1,num2){
+    while(num1<=num2){
+        /*Enquanto o num1 for divisivel por 2 e o resto for 0*/
+        if(num1%2 == 0){
+            lista.push(num1);
+        }
+        num1++;
+    }
+}
+pares(0,20);
+console.log(lista);
+
+    </script>
+</body>
+</html>
