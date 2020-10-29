@@ -44,6 +44,7 @@ function deleteProdutos(pos){
 function deleteAll(pos){
     produtos.splice(pos);
     renderProdutos();
+    saveToStorage();
 }
 
 function saveToStorage(){
