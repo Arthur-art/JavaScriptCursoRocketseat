@@ -1,10 +1,13 @@
-var xhr = new XMLHttpRequest();
-var link = 'https://api.github.com/users/arthur-art';
-xhr.open('GET', link);
-xhr.send(null);
+function getApi(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.github.com/users/arthur-art');
+    xhr.send(null);
 
-xhr.onreadystatechange=function(){
-    if(xhr.readyState===4){
-        console.log(JSON.parse(xhr.responseText));
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4){
+            console.log(JSON.parse(xhr.responseText));
+        }
     }
 }
+
+getApi();

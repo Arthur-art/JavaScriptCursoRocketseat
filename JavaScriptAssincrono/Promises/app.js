@@ -1,7 +1,6 @@
 var myPromise = function(){
     return new Promise(function(resolve, reject){
-
-        var xhr= new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://api.github.com/users/arthur-art');
         xhr.send(null);
 
@@ -19,7 +18,7 @@ var myPromise = function(){
 
 myPromise()
 .then(function(response){
-    console.log(response);
+    console.log(response.login);
 })
 .catch(function(error){
     console.warn(error);

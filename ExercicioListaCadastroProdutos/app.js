@@ -1,56 +1,56 @@
+var ul = document.querySelector('#safe ul');
 var input = document.querySelector('#input input');
 var button = document.querySelector('#input button');
-var ul = document.querySelector('#safe ul');
 
-var produtos = JSON.parse(localStorage.getItem('lista_compras')) || [];
 
-function renderProdutos(){
+var lista = JSON.parse(localStorage.getItem('lista')) || [];
+
+function renderList(){
+
     ul.innerHTML='';
-    
-    for(produto of produtos){
+    for(produtos of lista){
 
-        var textProduto = document.createTextNode(produto);
+
+        var produtoText = document.createTextNode(produtos);
         var li = document.createElement('li');
-        li.appendChild(textProduto);
+        li.appendChild(produtoText);
         ul.appendChild(li);
 
-        var linkExcluir = document.createElement('a');
-        linkExcluir.setAttribute('href', '#');
-        li.appendChild(linkExcluir);
-        var textExcluir = document.createTextNode('Excluir');
-        linkExcluir.appendChild(textExcluir);
+        var link = document.createElement('a');
+        var textlink = document.createTextNode('Excluir');
+        li.appendChild(link);
+        link.appendChild(textlink);
+        link.setAttribute('href', '#');
+        var pos = lista.indexOf(produtos);
+        link.setAttribute('onclick', 'excl('+pos+')');
 
-        var pos = produtos.indexOf(produto);
-        linkExcluir.onclick = deleteProdutos;
+       
 
     }
 }
 
-
-function addProdutos(){
-
-    var valueInput = input.value;
-    produtos.push(valueInput);
-    renderProdutos();
-    saveToStorage();
-}
-
-function deleteProdutos(pos){
-    produtos.splice(pos, 1);
-    renderProdutos();
-    saveToStorage();
-}
-
-function deleteAll(pos){
-    produtos.splice(pos);
-    renderProdutos();
-    saveToStorage();
-}
-
-function saveToStorage(){
-    localStorage.setItem('lista_compras', JSON.stringify(produtos));
+function add(){
+    lista.push(input.value);
+    renderList();
+    storage();
 
 }
 
-button.onclick = addProdutos;
-renderProdutos();
+function excl(pos){
+    lista.splice(pos, 1);
+    renderList();
+    storage();
+}
+
+function exclAll(pos){
+    lista.splice(pos);
+    renderList();
+    storage();
+}
+
+function storage(){
+    localStorage.setItem('lista', JSON.stringify(lista));
+}
+
+button.onclick= add;
+renderList();
