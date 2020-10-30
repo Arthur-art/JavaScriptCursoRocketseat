@@ -8,6 +8,7 @@ var input = document.querySelector('#input input');
 var ulElement = document.querySelector('#ul');
 
 var myPromise = function(){
+    ulElement.innerHTML='';
     return new Promise(function(resolve, reject){
 
         var xhr = new XMLHttpRequest();
@@ -31,12 +32,10 @@ button.onclick = function(){
     .then(function(response){
         console.log(response);
 
-        var aElement = document.createElement('a');
-        aElement.setAttribute('href', response.avatar_url);
-        var aText = document.createTextNode('FotoPerfil');
-        aElement.appendChild(aText);
+        var imgElement = document.createElement('img');
+        imgElement.setAttribute('src', response.avatar_url);
         var liElement = document.createElement('li');
-        liElement.appendChild(aElement);
+        liElement.appendChild(imgElement);
         ulElement.appendChild(liElement);
 
     })
