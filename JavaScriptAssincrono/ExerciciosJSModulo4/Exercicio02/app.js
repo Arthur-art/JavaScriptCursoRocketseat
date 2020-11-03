@@ -20,7 +20,7 @@ var myPromise = function(){
                 if(xhr.status===200){
                     resolve(JSON.parse(xhr.responseText));
                 }else{
-                    reject('error');
+                    reject('Usuario não existe');
                 }
             }
         }
@@ -31,7 +31,6 @@ button.onclick = function(){
     myPromise()
     .then(function(response){
         console.log(response);
-
         var imgElement = document.createElement('img');
         imgElement.setAttribute('src', response.avatar_url);
         var liElement = document.createElement('li');
