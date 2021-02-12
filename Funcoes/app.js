@@ -19,9 +19,13 @@ const functionBasic={
 
     callback(call){
         console.log('antes de executar a funcao callback');
+        function call(){
+            console.log('callback')
+        }
         call();
         console.log('depois de executar a funcao callback');
     }
+    
 }
 //ArrowFunction
 /*const myName=(name)=>{
@@ -39,9 +43,17 @@ console.log(sum);*/
 console.log(subject);
 console.log(functionBasic.scope(subject));*/
 
+//Callback
 /*A function é executada ate o callback, mas ela so termina de ser executada se 
-o callback for chamado como parametro*/
-functionBasic.callback(function call(){
-    console.log('ok')
-});
+o callback for chamado como parametro
+functionBasic.callback();*/
 
+//Function() constructor
+function Person(name){
+    this.name=name;
+    this.walk=()=>{
+        return this.name+" esta andando";
+    }
+}
+const arthur = new Person("Arthur");
+console.log(arthur.walk());
