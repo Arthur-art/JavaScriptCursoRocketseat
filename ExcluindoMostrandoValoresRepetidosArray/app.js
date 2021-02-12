@@ -1,4 +1,4 @@
-let array2 = ["arthur", "ivar", "bk201", "arthur"];
+let array2 = ["arthur", "ivar", "bk201", "arthur", "ivar"];
 
 const Utils = {
     mostrandoRepeditos(array) {
