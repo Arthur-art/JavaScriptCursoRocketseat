@@ -6,7 +6,13 @@ const functionBasic={
             value++;
         }
         return value;
+    },
+
+    sum(a,b){
+        return a+b;
     }
 }
 
-console.log(functionBasic.count(value=0));
+const soma = functionBasic.sum(40,50);
+
+console.log(soma);
