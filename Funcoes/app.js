@@ -28,10 +28,10 @@ const functionBasic={
     
 }
 //ArrowFunction
-/*const myName=(name)=>{
+const myName=(name)=>{
     console.log(name);
 }
-myName('Arthur');*/
+/*myName('Arthur');*/
 
 /*let value=0;
 console.log(functionBasic.count(value));*/
@@ -49,11 +49,16 @@ o callback for chamado como parametro
 functionBasic.callback();*/
 
 //Function() constructor
-function Person(name){
+function Person(name,idade,cidade){
     this.name=name;
+    this.idade=idade;
+    this.cidade=cidade;
     this.walk=()=>{
-        return this.name+" esta andando";
+        return this.name+" tem "+ this.idade +" anos de idade e"+
+        " esta andando na cidade de "+this.cidade;
     }
 }
-const arthur = new Person("Arthur");
-console.log(arthur.walk());
+const arthur = new Person("Arthur",24,"Constagem");
+const ivar = new Person("Ivar",26,"BH");
+/*console.log(ivar);
+console.log(arthur);*/
