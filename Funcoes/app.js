@@ -8,5 +8,5 @@ const functionBasic={
         return value;
     }
 }
-let value=0;
-console.log(functionBasic.count(value));
+
+console.log(functionBasic.count(value=0));
