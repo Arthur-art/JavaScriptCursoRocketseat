@@ -15,13 +15,19 @@ const functionBasic={
     scope(subject){
         subject = "study";
         return subject;
+    },
+
+    callback(call){
+        console.log('antes de executar a funcao callback');
+        call();
+        console.log('depois de executar a funcao callback');
     }
 }
 //ArrowFunction
-const myName=(name)=>{
+/*const myName=(name)=>{
     console.log(name);
 }
-myName('Arthur');
+myName('Arthur');*/
 
 /*let value=0;
 console.log(functionBasic.count(value));*/
@@ -32,4 +38,10 @@ console.log(sum);*/
 /*let subject;
 console.log(subject);
 console.log(functionBasic.scope(subject));*/
+
+/*A function é executada ate o callback, mas ela so termina de ser executada se 
+o callback for chamado como parametro*/
+functionBasic.callback(function call(){
+    console.log('ok')
+});
 
