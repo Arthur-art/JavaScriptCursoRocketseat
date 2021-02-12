@@ -36,4 +36,4 @@ const Utils={
     return array;
   }
 }
-console.log(Utils.mostrandoRepetidos(array2));
+console.log(Utils.deletandoRepetidos(array2));
