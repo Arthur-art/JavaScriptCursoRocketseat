@@ -60,8 +60,9 @@ const totalCategories = ()=>{
     //console.log('number books = '+numberBooks);
     
 }
-totalCategories()
+//totalCategories()
 
+//-Contar o numero de autores
 const countAuthors = ()=>{
     let authors = [];
     for(let category of booksByCategory){
@@ -72,9 +73,37 @@ const countAuthors = ()=>{
             }
         }
     }
-    console.log('count Authors = '+ authors.length)
+    console.log('Total Authors = '+ authors.length)
 }
-countAuthors()
+//countAuthors()
 
+//-Mostrar livros do autor Augusto Cury
+const countBooksOfAugusto = (authorBooks)=>{
+    let book = [];
+    for(let category of booksByCategory){
+        for(let books of category.books){
+            if(books.author == 'Augusto Cury'){
+                book.push(books.title);
+            }
+            
+        }
+    }
+    console.log('Books Augusto Cury => '+ book)
+}
+//countBooksOfAugusto()
 
+//-Transformar a funcao acima em uma funcao que ira receber o nome do autor e
+//devolver os livros desse autor.
+const countBooksAuthor = (authors)=>{
+    let books = [];
+    for(let category of booksByCategory){
+        for(let book of category.books){
+            if(book.author==authors){
+                books.push(book.title);
+            }
+        }
+    }
+    console.log(books);
+}
 
+countBooksAuthor('T. Harv Eker')
