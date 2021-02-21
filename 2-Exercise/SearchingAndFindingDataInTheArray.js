@@ -103,7 +103,7 @@ const countBooksAuthor = (authors)=>{
             }
         }
     }
-    console.log(books);
+    console.log(`livros do autor ${authors}: ${books}`);
 }
 
-countBooksAuthor('T. Harv Eker')
+countBooksAuthor('Augusto Cury')
