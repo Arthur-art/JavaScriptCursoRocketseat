@@ -9,19 +9,21 @@ const Utils = {
       valueReceitas += receitas[i];
       
     }
-    console.log(valueReceitas);
+    //console.log(valueReceitas);
     
       for (let i in despesas) {
         valueDespesas += despesas[i];
        
       }
-      console.log(valueDespesas);
+      //console.log(valueDespesas);
 
       saldo = valueReceitas - valueDespesas;
-      console.log(saldo);
+      //console.log(saldo);
 
-      if(saldo < 0 || saldo == 0){
-          console.log('saldo negativo igual a '+saldo+' reais')
+      if(saldo == 0){
+          console.log('saldo igual a '+saldo+' reais')
+      }else if(saldo < 0 ){
+        console.log('saldo negativo igual a '+saldo+' reais')
       }else if(saldo > 0 ){
           console.log('saldo positivo igual a '+saldo+' reais')
       }
@@ -29,6 +31,6 @@ const Utils = {
 };
 
 let receitas = [12,12,12,100];
-let despesas = [12,12,12,12,1210];
+let despesas = [12,12,12,100];
 
 Utils.familyCashFLow(receitas,despesas);
