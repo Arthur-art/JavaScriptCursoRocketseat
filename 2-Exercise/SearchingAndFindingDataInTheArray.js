@@ -47,5 +47,34 @@ const booksByCategory = [
     },
 
 ];
+console.log(booksByCategory);
 
-console.log(booksByCategory)
+// -Contar o numero de categorias e o numero de livros em cada categoria
+const totalCategories = ()=>{
+    let numberBooks;
+    for(let category of booksByCategory){
+        //console.log(category.category);
+        numberBooks=category.books.length;
+        
+    }
+    //console.log('number books = '+numberBooks);
+    
+}
+totalCategories()
+
+const countAuthors = ()=>{
+    let authors = [];
+    for(let category of booksByCategory){
+        for(let books of category.books){
+            console.log(books.author);
+            if(authors.indexOf(books.author)== -1){
+                authors.push(books.author);
+            }
+        }
+    }
+    console.log('count Authors = '+ authors.length)
+}
+countAuthors()
+
+
+
