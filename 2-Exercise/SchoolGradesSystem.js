@@ -24,4 +24,4 @@ const Notas ={
     }
 }
 
-Notas.notaMax(87);
+Notas.notaMax(87); 
