@@ -47,7 +47,7 @@ const booksByCategory = [
     },
 
 ];
-console.log(booksByCategory);
+//console.log(booksByCategory);
 
 // -Contar o numero de categorias e o numero de livros em cada categoria
 const totalCategories = ()=>{
