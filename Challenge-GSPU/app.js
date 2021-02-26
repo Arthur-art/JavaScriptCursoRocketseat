@@ -29,9 +29,7 @@ Liste o par escolhido partindo da pessoa escolhida pelo contador do sentido hor�
 (mas não deverá haver vírgula após o último escolhido).
 
 
-*Alguém é escolhido arbitrariamente como número 1
-
-*e os outros são numerados no sentido horário até N (os quais estarão à esquerda do 1°)
+*são numerados no sentido horário até N (os quais estarão à esquerda do 1°)
 
 *Partindo do 1° e movendo-se no sentido horário, um funcionário do cassino conta k posições e retira um apostador
 
@@ -40,8 +38,6 @@ Liste o par escolhido partindo da pessoa escolhida pelo contador do sentido hor�
 *contando m posições e retirando outro apostador
 
 *Os dois que são escolhidos são então removidos do círculo
-
-*e se ambos os funcionários escolherem a mesma pessoa, ela (ele) ganha um brinde exclusivo do cassino
 
 *Cada funcionário, em seguida, começa a contar novamente com a pessoa próxima disponível e o processo continua até que 
 
@@ -56,29 +52,34 @@ function slovenianCasino(amountPlayers, clockwise, anticlockwise) {
   let selectedPlayers = 0;
   let arrayPlayers = [];
   let employeeChoice1 = [];
-  let employeeChoice2 = []
-  //Separando players e empurrando dentro de arrayPlayers
+  let employeeChoice2 = [];
+  let winningPlayers = [];
+  let cont = 0;
+  //Contando e separando players e empurrando dentro de arrayPlayers
   for (let i = 0; i < amountPlayers; i++) {
     selectedPlayers += 1;
     arrayPlayers.push(selectedPlayers);
   }
+  let stringArrayPlayers = String(arrayPlayers);
   //Percorrendo o array em sentido horario baseado no tamanho da variavel clockwise
   //Inserindo o dado encontrado no array dentro da variavel employeeChoice1
-  for (let i = 0; i < clockwise; i++) {
-    employeeChoice1 = arrayPlayers[i];
+  for (let i in arrayPlayers) {
+   if(clockwise === arrayPlayers[i]){
+     cont++;
+     if(cont>0){
+       employeeChoice1.push(arrayPlayers[i]);
+       delete arrayPlayers[i];
+     }
+   }
   }
-  //Invertendo o array em sentido antihorario
   arrayPlayers.reverse();
   //Percorrendo o array em sentido horario baseado no tamanho da variavel anticlockwise
   for (let i = 0; i < anticlockwise; i++) {
     employeeChoice2 = arrayPlayers[i];
   }
   arrayPlayers.reverse();
-  //Contador
-  let cont = 0;
   for (let i in arrayPlayers) {
-    //Verificando e apagando valores dentro do array
-    if (employeeChoice1 === arrayPlayers[i] || employeeChoice2 === arrayPlayers[i]) {
+    if (employeeChoice2 === arrayPlayers[i]){
       cont++;
       if (cont > 0) {
         cont--;
@@ -87,11 +88,8 @@ function slovenianCasino(amountPlayers, clockwise, anticlockwise) {
       }
     }
   }
-
-  
-
+  winningPlayers.push(String(employeeChoice1),String(employeeChoice2));
   console.log(arrayPlayers);
-  console.log(employeeChoice1);
-  console.log(employeeChoice2);
+  console.log(winningPlayers);
 }
 slovenianCasino(10, 4, 3);
