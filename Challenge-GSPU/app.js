@@ -60,9 +60,8 @@ function slovenianCasino(amountPlayers, clockwise, anticlockwise) {
     selectedPlayers += 1;
     arrayPlayers.push(selectedPlayers);
   }
-  let stringArrayPlayers = String(arrayPlayers);
   //Percorrendo o array em sentido horario baseado no tamanho da variavel clockwise
-  //Inserindo o dado encontrado no array dentro da variavel employeeChoice1
+  //Inserindo o dado encontrado no array dentro da variavel employeeChoice1 e deltando ele no arrayPlayers
   for (let i in arrayPlayers) {
    if(clockwise === arrayPlayers[i]){
      cont++;
@@ -83,7 +82,7 @@ function slovenianCasino(amountPlayers, clockwise, anticlockwise) {
       cont++;
       if (cont > 0) {
         cont--;
-        //Apagando o dado na posicao em que o dado foi encontrado em employeeChoice1 no arrayPlayers
+        //Apagando o dado na posicao em que o dado foi encontrado em employeeChoice2 no arrayPlayers
         delete arrayPlayers[i];
       }
     }
