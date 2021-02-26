@@ -52,44 +52,40 @@ não reste ninguém, os últimos selecionados são os ganhadores.
 
 */
 
-function cassino(N, k, m) {
- 
-  let array = [];
-
-  let jogadores = 0;
-
-  let funcionario1 = 0;
-
-  let funcionario2 = 0;
-  for (let i = 0; i < 1; i++) {
-    for (let i = 0; i < N; i++) {
-      jogadores += 1;
-
-      array.push(jogadores);
-
-      for (let i = 0; i < k; i++) {
-        funcionario1 = array[i];
-      }
-    }
-
-    console.log(funcionario1);
-
-    let valueFunc1 = array.indexOf(funcionario1);
-    delete array[valueFunc1];
-    console.log(array);
-
-    array.reverse();
-
-    for (let i = 0; i < m; i++) {
-      funcionario2 = array[i];
-    }
+function slovenianCasino(amountPlayers, clockwise, anticlockwise) {
+  let arrayPlayers = [];
+  let selectedPlayers = 0;
+  let employeeChoice1 = 0;
+  let employeeChoice2 = 0;
+  //Separando players e empurrando dentro de arrayPlayers
+  for (let i = 0; i < amountPlayers; i++) {
+    selectedPlayers += 1;
+    arrayPlayers.push(selectedPlayers);
   }
-
-  let valueFunc2 = array.indexOf(funcionario2);
-    delete array[valueFunc2];
-
-  console.log(array);
-  console.log(funcionario2);
-
+  //Percorrendo o array em sentido horario baseado no tamanho da variavel clockwise
+  //Inserindo o dado encontrado no array dentro da variavel functionary1
+  for (let i = 0; i < clockwise; i++) {
+    employeeChoice1 = arrayPlayers[i];
+  }
+  //Encontrando a posicao do dado inserido em functionary1
+  let valueFunc1 = arrayPlayers.indexOf(employeeChoice1);
+  //Apagando o dado na posicao em que o dado foi encontrado em functionary1 no arrayPlayers
+  delete arrayPlayers[valueFunc1];
+  //Invertendo o array em sentido antihorario
+  arrayPlayers.reverse();
+  //Percorrendo o array em sentido horario baseado no tamanho da variavel anticlockwise
+  for (let i = 0; i < anticlockwise; i++) {
+    employeeChoice2 = arrayPlayers[i];
+  }
+  //Encontrando a posicao do dado inserido em functionary2
+  let valueFunc2 = arrayPlayers.indexOf(employeeChoice2);
+  //Apagando o dado na posicao em que o dado foi encontrado em functionary2 no arrayPlayers
+  delete arrayPlayers[valueFunc2];
+  arrayPlayers.reverse();
+  let arrayPlayers2 = [];
+  arrayPlayers2.push(arrayPlayers);
+  console.log(arrayPlayers2);
+  console.log(employeeChoice1);
+  console.log(employeeChoice2);
 }
-cassino(10, 4, 3);
+slovenianCasino(10, 4, 3);
