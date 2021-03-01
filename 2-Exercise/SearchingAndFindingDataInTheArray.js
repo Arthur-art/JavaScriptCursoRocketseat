@@ -106,4 +106,4 @@ const countBooksAuthor = (authors)=>{
     console.log(`livros do autor ${authors}: ${books}`);
 }
 
-countBooksAuthor('Augusto Cury')
+countBooksAuthor('George S. Clason')
