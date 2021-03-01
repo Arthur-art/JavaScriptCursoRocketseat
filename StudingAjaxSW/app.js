@@ -18,32 +18,23 @@ MyPromise()
   .then((response) => {
     //console.log(response);
     let result = response.results;
-    let planet = 0;
-    for(let i in result){
-      planet = result[0];
-    }
-    //console.log(planet)
+    console.log(result);
+    let planetsNames = [];
+    let climatePlanets = [];
+    result.forEach(planets=>{
+    planetsNames.push(planets['name']);
+    climatePlanets.push(planets['climate']);
+    });
+
+    console.log(`O primeiro planeta é ${planetsNames[0]} e o seu clima é ${climatePlanets[0]}`)
+
+    console.log(planetsNames)
 
 
-    let propriedades = Object.getOwnPropertyNames(planet);
-    let TatooineValue = Object.values(planet);
-    console.log(propriedades);
-    console.log(TatooineValue)
+    const prop = Object.getOwnPropertyNames(result[0]);
+    console.log(prop)
 
-    let nameTatooine = 0;
-
-    /*for(let i in TatooineValue){
-      console.log(TatooineValue[0]);
-    }*/
-
-    const Utils = {
-      planetsSearching() {
-        result.forEach((result) => {
-          //console.log(result);
-        });
-      },
-    };
-    Utils.planetsSearching();
+   
   })
   .catch((error) => {
     console.warn(error);
