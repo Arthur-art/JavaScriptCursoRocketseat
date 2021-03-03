@@ -18,21 +18,33 @@ MyPromise()
   .then((response) => {
     //console.log(response);
     let result = response.results;
-    console.log(result);
+
+    //console.log(result);
+
     let planetsNames = [];
+
     let climatePlanets = [];
-    result.forEach(planets=>{
-    planetsNames.push(planets['name']);
-    climatePlanets.push(planets['climate']);
+
+    let resultFlat = result.flatMap((value)=>{
+      return [value];
     });
 
-    console.log(`O primeiro planeta é ${planetsNames[0]} e o seu clima é ${climatePlanets[0]}`)
+    for(let i in result){
+      planetsNames=(result[0])
+    }
+    
+    result.forEach(planets=>{
+    //planetsNames.push(planets['name']);
+    //climatePlanets.push(planets['climate']);
+    });
 
-    console.log(planetsNames)
+    //console.log(`O primeiro planeta é ${planetsNames[0]} e o seu clima é ${climatePlanets[0]}`)
+
+    console.log(resultFlat)
 
 
     const prop = Object.getOwnPropertyNames(result[0]);
-    console.log(prop)
+    //console.log(prop)
 
    
   })
